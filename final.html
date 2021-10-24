@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var name = "";
+        var surname = "";
+        var email = "";
+        var password = "";
+        var loginEmail = "";
+        var loginParol = "";
+        var isInput = false;
+        var exit = false;
+
+
+        MenuChoise();
+
+        function MenuChoise() {
+
+            var result = prompt("Enter \"Help\" to login and \"Exit\" to log out: ");
+            if (result.toLowerCase() == "help") {
+
+                do {
+                    var choice = prompt(" ------- Welcome -------\n\n --1-- Register \n --2-- Login \n --3-- Profile \n --4-- Update profile\n --5-- Back\n --0-- Exit \n Enter the numbers :")
+                    if (choice == "1") {
+                        ShowRegister();
+                    } else if (choice == "2") {
+                        Showlogin();
+                    } else if (choice == "3") {
+                        if (isInput == true) {
+                            ShowProfile();
+                        } else {
+                            alert(" Pleace register first !");
+                        }
+                    } else if (choice == "4") {
+                        if (isInput == true) {
+                            ShowRegister();
+                        } else {
+                            alert(" Pleace register first !");
+                        }
+                    } else if (choice == "5") {
+                        MenuChoise();
+                    } else if (choice == "0") {
+                        break;
+                    } else {
+                        alert("Please make your choice correctly !");
+                    }
+
+                }
+                while (result.toLowerCase() == "help");
+            } else if (result.toLowerCase() == "exit") {
+                exit = true;
+            } else {
+                alert("The choice is incorrect !");
+                MenuChoise();
+            }
+        }
+
+        function ShowRegister() {
+            do {
+                name = prompt("Enter name :");
+                if (name == "")
+                    alert("Name is empty !");
+            } while (name == "");
+
+            do {
+                surname = prompt("Enter surname :");
+                if (surname == "")
+                    alert("Surname is empty !");
+            } while (surname == "");
+
+            do {
+                email = prompt("Enter email :");
+                if (email == "")
+                    alert("Email is empty !");
+
+            } while (email == "");
+            do {
+                password = prompt("Enter password :");
+                if (password == "")
+                    alert("Password is empty !");
+
+            } while (password == "");
+            isInput = true;
+            alert("You have successfully registered!");
+
+        }
+
+        function Showlogin() {
+            do {
+                loginEmail = prompt("Enter email : ");
+                if (loginEmail == "")
+                    alert("Email is empty !");
+            } while (loginEmail == "");
+
+            do {
+                loginParol = prompt("Enter password: ");
+                if (loginParol == "")
+                    alert("Password is empty !");
+            } while (loginParol == "");
+
+            if (loginEmail == email && loginParol == password) {
+                alert("*** Welcome ***");
+            } else {
+                alert("Username or password is incorrect ! ");
+            }
+        }
+
+        function ShowProfile() {
+
+            alert("Name : " + name + "\nSurname : " + surname + "\nEmail : " + email);
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
